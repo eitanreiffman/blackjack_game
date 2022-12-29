@@ -90,12 +90,18 @@ class Human:
                 ace_flag = True
         # If they are holding an Ace:
         if ace_flag == True:
-            ace_choice = input("\nWould you like to make your Ace worth 11? Enter 'yes' or 'no': ")
-            # And they want it to be worth 21
-            if ace_choice == 'yes':
-                # Add 10 to their hand value, and make the 'ace high' flag True
-                player_hand_value += 10
-                ace_high = True
+            while True:
+                ace_choice = input("\nWould you like to make your Ace worth 11? Enter 'yes' or 'no': ")
+                # And they want it to be worth 21
+                if ace_choice == 'yes':
+                    # Add 10 to their hand value, and make the 'ace high' flag True
+                    player_hand_value += 10
+                    ace_high = True
+                    break
+                elif ace_choice == 'no':
+                    break
+                else:
+                    print("\nSorry, that response is invalid.")
         # Blackjack if the player starts off with 21
         if player_hand_value == 21:
             print("\nYou've got Blackjack! Winner winner chicken dinner!\n")
@@ -134,14 +140,20 @@ class Human:
                         elif card[0] == "Ace of Clubs":
                             ace_flag = True
                     if ace_flag == True:
-                        ace_choice = input("\nWould you like to make your Ace worth 11? Enter 'yes' or 'no': ")
-                        # If the player has an Ace...
-                        # AND they haven't made any of their Aces worth 21 yet...
-                        # AND they're deciding to do that right now
-                        # Then, we finally add 10 to their player hand value, and set the 'ace high' flag to True
-                        if ace_choice == 'yes':
-                            player_hand_value += 10
-                            ace_high = True
+                        while True:
+                            ace_choice = input("\nWould you like to make your Ace worth 11? Enter 'yes' or 'no': ")
+                            # If the player has an Ace...
+                            # AND they haven't made any of their Aces worth 21 yet...
+                            # AND they're deciding to do that right now
+                            # Then, we finally add 10 to their player hand value, and set the 'ace high' flag to True
+                            if ace_choice == 'yes':
+                                player_hand_value += 10
+                                ace_high = True
+                                break
+                            elif ace_choice == 'no':
+                                break
+                            else:
+                                print("\nSorry, that response is invalid.")
                 # Card value gets added to the player's hand
                 player_hand_value += new_card[1]
                 print(f"\nThe current value of your cards is {player_hand_value}.")
